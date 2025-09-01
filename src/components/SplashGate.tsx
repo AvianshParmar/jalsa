@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from '/lovable-uploads/png_logo.png';
+import logo from 'public/lovable-uploads/png_logo.png';
 
 interface SplashGateProps {
   children: React.ReactNode;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '/lovable-uploads/png_logo.png';
+import logo from '@assets/png_logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

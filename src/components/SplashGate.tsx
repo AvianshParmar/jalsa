@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from '/lovable-uploads/png_logo.png';
 
 interface SplashGateProps {
   children: React.ReactNode;
@@ -40,7 +41,7 @@ const SplashGate: React.FC<SplashGateProps> = ({
           >
             {/* Logo */}
             <motion.img
-              src="public\lovable-uploads\png_logo.png" // 👉 replace with your logo path
+              src={logo} // 👉 replace with your logo path
               alt="Jalsa Paan Logo"
               className="w-40 h-auto mb-8"
               initial={{ scale: 0 }}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from 'public/lovable-uploads/png_logo.png';
 
 
 const Header = () => {
@@ -61,7 +62,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src= "public/lovable-uploads/png_logo.png"  
+              src= {logo}  
               alt="Jalsa Paan Logo" 
               className="h-10 w-auto md:h-16 md:w-25 "
             />

@@ -4,6 +4,7 @@ import { Facebook, Instagram, X  } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { FaHome, FaInfoCircle, FaShoppingBag ,FaImages, FaQuoteLeft ,FaPhone} from 'react-icons/fa';
+import logo from 'public/lovable-uploads/png_logo.png';
 
 
 const milestones = [
@@ -25,7 +26,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/White_pmg_logo.png" 
+                src={logo} 
                 alt="Jalsa Paan Logo" 
                 className=" w-auto h-16 "
               />

@@ -61,7 +61,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src={logo} 
+              src={process.env.PUBLIC_URL + "/png_logo.png"}  
               alt="Jalsa Paan Logo" 
               className="h-10 w-auto md:h-16 md:w-25 "
             />

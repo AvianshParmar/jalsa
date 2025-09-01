@@ -23,7 +23,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <SplashGate minDurationMs={2500} >
-          <BrowserRouter>
+          <BrowserRouter basename="/jalsa">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />

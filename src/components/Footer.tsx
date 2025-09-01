@@ -4,7 +4,7 @@ import { Facebook, Instagram, X  } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { FaHome, FaInfoCircle, FaShoppingBag ,FaImages, FaQuoteLeft ,FaPhone} from 'react-icons/fa';
-import logo from 'public/lovable-uploads/png_logo.png';
+import logo from 'public/lovable-uploads/logo.png';
 
 
 const milestones = [

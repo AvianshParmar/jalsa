@@ -6,14 +6,20 @@ import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
+import Preloader from '@/components/Preloader';
 import heroImage from '@/assets/hero-paan.jpg';
-import paanVarietiesImage from '@/assets/paan-varieties.jpg';
-import sweetPaanImage from '@/assets/sweet-paan.jpg';
-import calcuttaPaanImage from '@/assets/calcutta-paan.jpg';
+import paanVarietiesImage from '@/assets/Paan Verity.png';
+import sweetPaanImage from '@/assets/Sweet Paan 3.png';
+import calcuttaPaanImage from '@/assets/Calcutte Paan.png';
+import backgroundPattern from '@/assets/bg.jpeg';
+import leaf1 from '/lovable-uploads/leaf_1.png';
+import leaf2 from '/lovable-uploads/leaf_2.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Index = () => {
+  //  const [isLoading, setIsLoading] = useState(true);
+  
   const [isVisible, setIsVisible] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
@@ -29,9 +35,10 @@ const Index = () => {
 
   const heroTexts = [
     { main: "Experience the Joy of", highlight: "Authentic Paan" },
-    { main: "We Accept Live Orders for", highlight: "Events & Functions" },
-    { main: "Fresh Paan Served at Your", highlight: "Special Occasions" },
-    { main: "Traditional Recipes for", highlight: "Modern Celebrations" }
+    { main: "Live Orders for", highlight: "Events & Functions" },
+    { main: "Fresh Paan for Your", highlight: "Special Occasions" },
+    { main: "Traditional Taste for", highlight: "Modern Celebrations" }
+
   ];
 
   useEffect(() => {
@@ -40,7 +47,9 @@ const Index = () => {
     }, 4000);
     return () => clearInterval(textInterval);
   }, [heroTexts.length]);
-
+  // const handlePreloaderComplete = () => {
+  //   setIsLoading(false);
+  // };
   const features = [
     { icon: <Leaf className="w-8 h-8 text-primary" />, title: "Fresh Ingredients", description: "We use only the freshest betel leaves and premium quality ingredients sourced daily." },
     { icon: <Users className="w-8 h-8 text-primary" />, title: "Expert Craftsmanship", description: "Our skilled paan makers have years of experience in creating the perfect paan." },
@@ -55,26 +64,28 @@ const Index = () => {
     { name: "Calcutta Paan", description: "Traditional Calcutta-style paan with tobacco and authentic Bengali spices.", image: calcuttaPaanImage, price: "From £4.00" },
     { name: "Paan Varieties", description: "Explore our wide range of paan varieties including flavored and specialty options.", image: paanVarietiesImage, price: "From £3.00" }
   ];
-
+//  if (isLoading) {
+//     return <Preloader onComplete={handlePreloaderComplete} />;
+//   }
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden sm:pt-40 pb-10">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-1 sm:pt-40 pb-10">
         {/* Background Image always visible */}
         <div className="absolute inset-0">
           <img
-            src={heroImage}
+            src={backgroundPattern}
             alt="Authentic Paan"
             className="w-full h-full object-cover object-center blur-sm"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-primary/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/60 to-primary/50"></div>
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className={`space-y-6 lg:space-y-8 transition-all duration-1000 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
+          <div className={`space-y-4 lg:space-y-8 transition-all duration-1000 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
             {/* Animated Hero Text */}
             <div className="h-32 lg:h-40 flex items-center justify-center">
               <h1
@@ -83,11 +94,12 @@ const Index = () => {
                 data-aos="fade-up"
               >
                 {heroTexts[currentTextIndex].main}<br />
-                <span className="text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]">{heroTexts[currentTextIndex].highlight}</span>
+                {/* drop-shadow-[0_0_8px_rgba(250,204,21,0.8)] */}
+                <span className="text-yellow-400 font-extrabold">{heroTexts[currentTextIndex].highlight}</span>
               </h1>
             </div>
             <p
-              className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed px-4"
+              className="text-md sm:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed px-0 sm:px-4"
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -102,7 +114,7 @@ const Index = () => {
             >
               <div className="flex items-center justify-center gap-4 mb-4">
                 <PartyPopper className="w-8 h-8 text-yellow-300 animate-pulse" />
-                <h3 className="text-xl lg:text-2xl font-bold  text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]">Live Event Catering Available</h3>
+                <h3 className="text-xl lg:text-2xl font-bold  text-yellow-400 ">Live Event Catering Available</h3>
                 <Calendar className="w-8 h-8 text-yellow-300 animate-pulse" />
               </div>
               <p className="text-base lg:text-lg text-white/90 font-medium">
@@ -194,7 +206,7 @@ const Index = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover scale-100 object-center transition-transform duration-500 hover:scale-110"
                   />
                 </div>
                 <CardContent className="p-6 space-y-4">
@@ -203,9 +215,9 @@ const Index = () => {
                   <div className="flex items-center justify-between">
                   <Button className="btn-hero w-full group relative overflow-hidden" asChild> 
                     <Link to="/contact" className="flex items-center justify-center gap-2"> 
-                    <img src="public/lovable-uploads/leaf_2.png" alt="Paan Icon" className="h-4 w-4  " /> 
+                    <img src={leaf2} alt="Paan Icon" className="h-4 w-4  " /> 
                     <span>Order Now</span>
-                    <img src="public/lovable-uploads/leaf_1.png" alt="Paan Icon" className="h-4 w-4 " /> 
+                    <img src={leaf1} alt="Paan Icon" className="h-4 w-4 " /> 
                     </Link> 
                   </Button>
                   </div>
@@ -217,7 +229,8 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-primary via-primary-dark to-accent">
+      {/* bg-gradient-to-r from-primary via-primary-dark to-accent */}
+      <section className="py-24 bg-gradient-to-br from-green-900 to-green-700 ">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8" data-aos="zoom-in">
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-white">

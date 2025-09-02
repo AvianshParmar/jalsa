@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,9 +9,19 @@ import heroImage from '@/assets/hero-paan.jpg';
 import paanVarietiesImage from '@/assets/paan-varieties.jpg';
 import sweetPaanImage from '@/assets/sweet-paan.jpg';
 import calcuttaPaanImage from '@/assets/calcutta-paan.jpg';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  useEffect(() => {
+      AOS.init({
+        duration: 1200,
+        once: false, // 👈 animations repeat
+        mirror: true, // 👈 animate on scroll up also
+        easing: "ease-in-out",
+      });
+    }, []);
 
   const galleryImages = [
     {
@@ -82,17 +92,21 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       
       {/* Hero Section */}
       <section className="mt-10 pt-32 pb-16 bg-gradient-to-br from-primary/10 via-secondary/10 to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-5xl md:text-6xl font-playfair font-bold text-foreground">
+            <h1 className="text-5xl md:text-6xl font-playfair font-bold text-foreground"
+            data-aos='fade-up'
+            data-aos-delay='300'>
               Our Gallery
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-muted-foreground leading-relaxed"
+             data-aos='zoom-in'
+            data-aos-delay='600'>
               Take a visual journey through our authentic paan creations, showcasing the artistry and tradition behind every piece.
             </p>
           </div>
@@ -107,6 +121,8 @@ const Gallery = () => {
               <Card 
                 key={index} 
                 className="product-card overflow-hidden cursor-pointer group"
+                data-aos="zoom-in"
+                data-aos-delay={index * 120}
                 onClick={() => openLightbox(index)}
               >
                 <div className="relative aspect-square overflow-hidden">

@@ -12,17 +12,31 @@ import Gallery from "./pages/Gallery";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import SplashGate from "./components/SplashGate";
+
+import Preloader from "./components/Preloader";
 
 const queryClient = new QueryClient();
 
 const App = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Preloader onComplete={function (): void {
+      throw new Error("Function not implemented.");
+    } } />;
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <SplashGate minDurationMs={2500} >
+        
           <BrowserRouter basename="/jalsa">
             <Routes>
               <Route path="/" element={<Index />} />
@@ -34,7 +48,7 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </SplashGate>
+        
       </TooltipProvider>
     </QueryClientProvider>
   );

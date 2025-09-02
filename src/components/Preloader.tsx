@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import logo from '@/assets/png logo.png';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -20,9 +21,9 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
         {/* Simple Logo */}
         <div className="relative">
           <img 
-            src="/lovable-uploads/9127966a-7de4-4aba-b233-7b3165c2bcc3.png" 
+            src={logo}
             alt="Jalsa Paan Logo"
-            className="w-24 h-24 md:w-32 md:h-32 mx-auto object-contain animate-gentle-pulse"
+            className="w-40 h-auto md:w-40 md:h-auto mx-auto object-contain animate-gentle-pulse"
           />
         </div>
         

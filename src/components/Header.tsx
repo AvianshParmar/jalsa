@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from 'public/lovable-uploads/png_logo.png';
+import logo from '/lovable-uploads/png_logo.png';
 
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
         {/* Top Bar */}
-        <div className="hidden md:flex items-center justify-between py-2 text-sm border-b border-border/50">
+        <div className="hidden md:flex items-center justify-between py-2 text-sm border-b border-green-800 border-opacity-15">
           <div className="flex items-center space-x-6 text-muted-foreground">
             <a 
               href="https://maps.app.goo.gl/Adjn9GbMGLBifpiC9" 
